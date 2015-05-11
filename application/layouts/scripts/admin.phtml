@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
+  	<head>
+
+		
+		<?php 
+                  
+                    $this->headScript()->prependFile('js/jquery-1.2.6.js');
+                    $this->headScript()->appendFile('js/jquery.maskedinput-1.1.4.pack.js');
+                    $this->headScript()->appendFile('js/funcoes.js');
+                    $this->headScript()->appendFile('js/jquery.click-calendario-1.0.js');
+                    
+                    echo $this->headScript() . "\n";
+                ?>
+		<title>Cadastro projetos</title>
+        <link rel="stylesheet" href=" css/index.css "/>
+        <link rel="stylesheet" href=" css/formUsuario.css "/>
+        <link rel="stylesheet" href=" css/formProjeto.css "/>                          
+        <link rel="stylesheet" href=" css/lista.css "/>        
+        <link rel="stylesheet" href=" css/adm.css "/>        
+       
+        
+        <link rel="stylesheet" href="css/jquery.click-calendario-1.0.css"/>          
+       
+	</head>
+        
+  <body>
+	<div id="interface">
+	  <header id="cabecalho">
+
+          <img src="Imagens-projeto/logo_newnbcgib.jpg">
+
+
+<nav id="menu">
+    <ul id="nav">
+                   
+        <li><a href=" <?= $this->url(array( 'controller' => 'adm-projetos' , 'action' => 'index')); ?> ">Projetos cadastrados</a></li>
+        <li><a href=" <?= $this->url(array( 'controller' => 'adm-usuarios' , 'action' => 'index')); ?> ">Usuários cadastrados</a></li>
+        
+    </ul>
+</nav>  
+
+<br>         
+          <figure id="logo-1">
+                <img src="Imagens-projeto/logo_uesc.jpg">   
+          </figure> 
+          
+          <figure id="logo-2">
+                <img src="Imagens-projeto/nbcgiblogo80.png">
+          </figure>
+
+
+		<h1 id="titulo-principal">Núcleo de Biologia Computacional e Gestão de Informações Biotecnológicas -</h1>
+
+                                    <h2>NBCGIB</h2>
+          <br>
+
+		
+                    </header>
+            
+
+                     <?php echo $this->layout()->content; ?>
+
+             <footer id="rodape">
+          <img id="ft-rodape" src="Imagens-projeto/rodape.PNG">
+		<p>Copyright © 2014 NBCGIB-UESC. Todos os direitos reservados</p>
+                
+	  </footer>
+	
+  	</div>
+  </body>
+</html>
+

@@ -1,0 +1,23 @@
+h1.titulo-lista{
+   text-align: center;
+   font-size: 18pt;
+}
+
+section.lista{
+/*    float: left;*/
+    width: 100%;
+    background-color: #F8F8F8;
+}
+
+article.lista_dados{
+/*    float: left;*/
+    width: 70%;
+}
+
+section.lista span{
+    font-size: 10pt;
+}
+
+span.lista_descricao_projeto{
+    font-style: bold;
+}

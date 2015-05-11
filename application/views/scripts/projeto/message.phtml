@@ -1,0 +1,10 @@
+
+<script>
+    alert(
+            "Cadastro realizado com sucesso !\n\
+              Click em 'OK' para continuar."
+);
+    //location.href='http://172.17.1.202/projeto/public/projeto/pdf/id/<$id?>';
+    location.href='<?php echo $this->url(array('controller'=>'projeto','action'=>'pdf'),null,true); ?>';
+</script>
+

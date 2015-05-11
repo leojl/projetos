@@ -1,0 +1,291 @@
+<fieldset id="fieldAuth">
+    <legend>Login</legend>  
+   <form id="autenticacao" method="post" action="<?=$this->url(array("controller"=>"usuario","action"=>"index"),null,true)?>">
+       <input type="text" required  placeholder="Entre com o login" name="login" id="login"/><br><br>
+       <input type="password" required  placeholder="Entre com a senha" name="senha" id="senha"/><br><br>
+       
+       <input type="radio" name="radioTipoLogin" value="adm" > <label>Administrador </label>  <br>
+       <input type="radio" name="radioTipoLogin" value="usuario_comum" checked> <label>Usuário comum </label>  <br><br>
+                 
+        <input name="btn_auth" id="btn_auth" type="submit" value="Entrar"/><br><br>
+   </form>       
+</fieldset>    
+    
+<br><br>
+
+<article id="atencao">
+            <h2 id="aviso1">APÓS PREENCHER OS CAMPOS DO FORMULÁRIO ABAIXO E CLICAR EM "ENVIAR", FAVOR IMPRIMIR O RELATÓRIO GERADO.</br>
+
+		ASSINE E ENCAMINHE AO NBCGIB.</h2>
+                    
+                    </article>
+<section id="corpoProjeto">
+   
+<br><br><br>
+
+          <form onsubmit="return validarProjeto(this);" name="formProjeto"  id="formProjeto" method="post" action="<?=$this->url(array("controller"=>"projeto","action"=>"criar"),null,true)?>">
+             <fieldset id="universidade">
+
+                  <legend>Cadastro Instituição</legend>
+
+                  <label class="lbl-inputs" >País:</label>
+                  <select  name="pais-inst" id="combo_paisInst" class="combo">
+                        <option value="0" >País</option>
+                        <?php foreach ($this->selectPais as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox"  name="check_paisInst"  value="1" id="checkPaisInst" class="check" onclick=" desbloquear(document.getElementById( 'checkPaisInst' ), document.getElementById( 'pais-inst' ) , document.getElementById( 'combo_paisInst' ) ); cadastroInst(document.getElementById('check-nomeInst'));  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="pais-inst"  class="txb"  required   disabled="disabled"   id="pais-inst"/><br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Divisão administrativa:</label>
+                  <select  name="uf-inst" id="combo_ufInst" class="combo">
+                        <option value="0">Estado</option>
+                  </select>
+                  <input  type="checkbox"  name="check_ufInst"  value="1" id="check-ufInst" class="check" onclick=" desbloquear(document.getElementById( 'check-ufInst' ), document.getElementById( 'uf-inst' ) , document.getElementById( 'combo_ufInst' ) )  ">
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text" name="uf-inst"   class="txb"  required   disabled="disabled"   id="uf-inst"/><br><br>
+
+                  
+                  <label class="lbl-inputs ">Nome:</label>
+                  <select name="nome-inst"  id="combo_nomeInst" class="combo">
+                        <option value="0" >Instituição</option>                        
+                  </select>
+                  <input  type="checkbox"  value="1" name="check_nomeInst"  id="check-nomeInst" class="check" onclick=" desbloquear(document.getElementById( 'check-nomeInst' ), document.getElementById( 'nome-inst' ) , document.getElementById( 'combo_nomeInst' ) ); cadastroInst(document.getElementById('check-nomeInst'));"> 
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text"  name="nome-inst" class="txb"  id="nome-inst"   required  disabled="disabled" /><br><br>
+                 
+                   
+                  <label class="lbl-inputs ">Departamento:</label>
+                  <select  name="departamento-inst" id="combo_departamentoInst" class="combo">
+                        <option value="0" >Departamento</option>                        
+                  </select>
+                  <input  type="checkbox" value="1"  name="check_departamentoInst"  id="check-departamentoInst" class="check" onclick=" desbloquear(document.getElementById( 'check-departamentoInst' ), document.getElementById( 'departamento-inst' ) , document.getElementById( 'combo_departamentoInst' ) )  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="departamento-inst"   required    class="txb"  disabled="disabled"   id="departamento-inst"/><br><br>
+
+                  
+<!--       Areas de Conhecimento com base no CNPQ           -->
+
+                  <label class="lbl-inputs" >Grande Área:</label>
+                  <select name="grandeAreaInst"  id="combo_grandeAreaInst" class="combo">
+                        <option value="0" >Grande Área</option>
+                        <?php foreach ($this->selectGrandeArea as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Área:</label>
+                  <select name="areaInst"  id="combo_areaInst" class="combo">
+                        <option value="0" >Área</option>                       
+                  </select>
+                  <br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Subárea:</label>
+                  <select name="subAreaInst"  id="combo_subAreaInst" class="combo">
+                        <option value="0" >Subárea</option>                       
+                  </select>
+                  <br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Especialidade:</label>
+                  <select name="especialidadeInst"  id="combo_especialidadeInst" class="combo">
+                        <option value="0" >Especialidade</option>                       
+                  </select>
+                  <br><br>
+                  
+                  
+                <!--       Areas de Conhecimento com base no CNPQ           -->
+                
+                
+                
+                  
+                  <label class="lbl-default" >Cidade:</label>
+                  <input type="text"  name="cidade-inst"   class="txb-default"  disabled="disabled"  required  id="cidade-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Endereço:</label>
+                  <input type="text"  name="end-inst"   class="txb-default"  disabled="disabled"    id="end.inst"/><br><br>
+
+
+                  <label class="lbl-default" >Complemento:</label>
+                  <input type="text"  name="comp-inst"   class="txb-default"  disabled="disabled"   id="comp.inst"/><br><br>
+
+
+                  <label class="lbl-default" >Bairro:</label>
+                  <input type="text" name="bairro-inst"    class="txb-default"  disabled="disabled"  required   id="bairro.inst"/><br><br>
+
+                  
+
+                  <label class="lbl-default" >CEP:</label>
+                  <input type="text" name="cep-inst"   class="txb-default"  disabled="disabled"  required    id="cep-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Telefone:</label>
+                  <input type="text"  name="tel-inst"  class="txb-default"   disabled="disabled"    id="tel-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Ramal:</label>
+                  <input type="text"  name="ramal-inst" class="txb-default"  disabled="disabled"     id="ramal-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Fax:</label>
+                  <input type="text"  name="fax-inst"  class="txb-default"   disabled="disabled"   id="fax-inst"/><br><br>
+                  
+              </fieldset><br><br>
+              <fieldset id="">
+                  <legend>Dados do Projeto</legend>
+
+                  
+                 <label class="lbl-default" >Grupo do projeto:</label>
+                 <input type="text"  name="grupo_projeto"   class="txb-default"  required   id="grupo_projeto"/><br><br>
+                 
+                 <label class="lbl-default" >Título:</label>
+                 <input type="text"  name="titulo_projeto"   class="txb-default"    required    id="titulo_projeto"/><br><br>
+                 
+                 <label class="lbl-default" >Orientador:</label>
+                 <input type="text"  name="orientador_projeto"   class="txb-default"   id="orientador_projeto"/><br><br>
+
+                  
+                 <input type="radio" name="radioTipoProjeto" value="ic" > <label>Iniciação científica </label>  <br>
+                 <input type="radio" name="radioTipoProjeto" value="tcc"> <label>Trabalho de conclusão de curso </label>  <br>
+                 <input type="radio" name="radioTipoProjeto" value="Mestrado"> <label>Mestrado </label>  <br>
+                 <input type="radio" name="radioTipoProjeto" value="Doutorado"> <label>Doutorado</label> <br>
+                 <input type="radio" name="radioTipoProjeto" value="outro"> <label>Outro</label>
+                 <br><br>
+                 
+                 
+                 <label  >Descrição do projeto:</label><br>
+                 <textarea name="descricao_projeto" id="descricao_projeto"  rows="10" cols="110"></textarea><br><br><br>
+                 
+                 <label class="" >Duração estimada em meses (digite ' 0 ' caso o projeto for permanente):</label>
+                 <input type="text"  name="duracao_projeto"   class=""     required   id="duracao_projeto" style ="width: 150px;"/><br><br>
+<!--                 
+                 <fieldset>
+                     <legend>Espaço em disco</legend>
+                     <input type="text"  name="espacoDisco_projeto"   class=""  required   id="espacoDisco_projeto" />
+                     <input type="radio" name="radioEspacoDisco_projeto" value="mb" checked> MBytes
+                     <input type="radio" name="radioEspacoDisco_projeto" value="gb"> GBytes
+                 </fieldset><br><br>
+                 -->
+                 
+                 <fieldset>
+                     <legend>Recursos necessários</legend>
+                     
+                     <input  type="checkbox"  name="hpc_projeto"  value="sim" id="hpc_projeto" > Cluster HPC &nbsp;
+                     <input  type="checkbox"  name="proxy_projeto"  value="sim" id="proxy_projeto" > Proxy &nbsp;
+                     <input  type="checkbox"  name="servidorBd_projeto"  value="sim" id="servidorBd_projeto" > Servidor BD &nbsp;
+                     <input  type="checkbox"  name="servidorEmail_projeto"  value="sim" id="servidorEmail_projeto" > Servidor E-mail &nbsp;
+                     <input  type="checkbox"  name="servidorWeb_projeto"  value="sim" id="servidorWeb_projeto" > Servidor Web &nbsp;
+                     <input  type="checkbox"  name="vpn_projeto"  value="sim" id="vpn_projeto" > VPN &nbsp;<br><br>
+                     <input type="text"  name="outrosRecursos_projeto"   id="outrosRecursos_projeto" /> Outros
+                    
+                 </fieldset>
+                 
+                 <br><br>
+                 
+                 <label>Descrição das necessidades computacionais para o projeto</label><br>
+                 <textarea name="descricaoNecessidades_projeto" id="descricaoNecessidades_projeto" rows="10" cols="110"></textarea><br><br>
+                 <br>
+                 <br>
+                 <label>Projeto cadastrado: </label>
+                 
+                 <input type="radio" name="radiocadastroCacau_projeto" value="CACAU" checked> CACAU &nbsp;
+                 <input type="radio" name="radiocadastroCacau_projeto" value="NBCGIB"> NBCGIB &nbsp;
+                 <input type="radio" name="radiocadastroCacau_projeto" value="CACAU e NBCGIB"> CACAU e NBCGIB
+                 <br><br>
+                 
+                  <label>Data de início do projeto:</label>
+                  
+                  <input type="text" name="inicio_projeto" required id="data" class="data" /><br/><br/>
+                  
+                  <label>Digite um e-mail para contato:</label>
+                  <input type="email" name="email-projeto" required  id="email-projeto"/><br><br>
+
+<!--                 
+             </fieldset>
+             <br><br>
+             <?php //$softwares = $this->softwares ?>
+             <fieldset>
+                 <legend>Softwares necessários</legend>
+                 
+                 <div id="limitaTabelaSoftwares">
+                     
+                   <table class="tbl_software">
+                       <tr>
+                           <th>Softwares instalados </th>
+                           <th>Versão</th>
+                           <th>Selecione</th>
+                       </tr>
+                       <?php //foreach ($softwares as $programas):?>
+                       <tr>
+                           <td>
+                                <?//$programas['nome']?>
+                           </td>
+                           <td>
+                               <?$programas['versao']?>
+                           </td>
+                           <td>
+                                <input  type="checkbox"  name="softwares[]"  value="<?$programas['id']?>" id="softwares" > 
+                           </td>
+                       </tr>
+                       <?php// endforeach; ?>
+                   </table>
+                 </div>
+                 <br><br>
+                 
+                 <label style="display: block" id="lbl_addSoftwares"><input id="btn_addSoftwares" type="button" name="add" value="Adicionar novos softwares" /></label> <br><br>
+                 
+                 <label class="lbl-default" >Outro software:</label>
+                 <input type="text" class="txb-default" name="outros_softwares[]" ><br><br>
+                 
+                 <label class="lbl-default" >Versão:</label>
+                 <input type="text" class="txb-default"  name="versao_software[]"  ><br><br>
+                 
+                 <label class="lbl-default" >Links da documentação:</label>
+                 <textarea name="links[]"  rows="3" cols="40"></textarea><br><br>
+                 
+                 
+                 <div id="mais_inputs"></div>  
+                 -->
+                 
+             </fieldset>
+             
+             
+            <br/>
+             
+              <fieldset>
+                  <legend> Termo de compromisso </legend>
+
+                    <ul>
+                        <p id="termosProjeto">
+                        O usuário se compromete a:
+                        <li><span>não fornecer sua senha (pessoal e intransferível);</span></li>
+                        <li><span>não se afastar do objetivo inicial do projeto ao qual está vinculado;</span></li>
+                        <li><span>respeitar as diretrizes de uso da rede às quais o CACAU está conectado;</span></li>
+                        <li><span>incluir em qualquer trabalho ou publicação, oriunda deste projeto, a frase: "Pesquisa desenvolvida com o auxílio do Núcleo de
+                        Biologia Computacional e Gestão de Informações Biotecnológicas - NBCGIB", com recursos FINEP/MCT, CNPQ e FAPESB e da
+                        Universidade Estadual de Santa Cruz - UESC” ou o equivalente no idioma da publicação.</span></li>
+                  </br>
+                  </br>
+                        <li><span>O NBCGIB se reserva ao direito de a qualquer momento, a seu exclusivo critério, mudar as diretrizes sem aviso prévio.</span></li>
+                  </p>
+
+                    </ul>
+                  
+              </fieldset>
+              
+              <input   onclick=" validarProjeto(document.getElementsByName('formProjeto'));     " id="btnProjetoEnviar" name="enviar" type="submit"  value="Enviar"/><br><br>
+              
+          </form>
+              
+	  </section>	  
+
+
+
+

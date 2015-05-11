@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
+  	<head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<?php 
+                   
+                    $this->headScript()->prependFile('js/jquery-1.2.6.js');
+                    $this->headScript()->appendFile('js/jquery.maskedinput-1.1.4.pack.js');
+                    $this->headScript()->appendFile('js/funcoes.js');
+                    $this->headScript()->appendFile('js/jquery.click-calendario-1.0.js');
+                    
+//                    $this->headLink()->prependStylesheet('css/index.css');
+//                    $this->headLink()->appendStylesheet('css/formUsuario.css');
+//                    $this->headLink()->appendStylesheet('css/formProjeto.css');
+//                    $this->headLink()->appendStylesheet('css/lista.css');
+//                    $this->headLink()->appendStylesheet('css/adm.css');
+//                    $this->headLink()->appendStylesheet('css/jquery.click-calendario-1.0.css');
+//
+//                    echo $this->headLink() . "\n";
+                    echo $this->headScript() . "\n";
+                ?>
+                    <link rel="stylesheet" type="text/css" href="/projetos/public/css/index.css"></link>
+                    <link rel="stylesheet" type="text/css" href="/projetos/public/css/formUsuario.css"></link>
+                    <link rel="stylesheet" type="text/css" href="/projetos/public/css/formProjeto.css"></link>
+                    <link rel="stylesheet" type="text/css" href="/projetos/public/css/lista.css"></link>
+                    <link rel="stylesheet" type="text/css" href="/projetos/public/css/adm.css"></link>
+                    <link rel="stylesheet" type="text/css" href="/projetos/public/css/jquery.click-calendario-1.0.css"></link>
+                    
+		<title>Cadastro projetos</title>
+
+	</head>
+        
+  <body>
+	<div id="interface">
+	  <header id="cabecalho">
+
+          <a href="http://nbcgib.uesc.br"> <img src="/projetos/public/Imagens-projeto/logo_newnbcgib.jpg"></a>
+
+
+<nav id="menu">
+    <ul id="nav">
+            
+        <li><a href="http://nbcgib.uesc.br">Página inicial</a></li>        
+        <li><a href=" <?= $this->url(array( 'controller' => 'projeto' , 'action' => 'index')); ?> ">Cadastrar projeto</a></li>
+        <li><a href=" <?= $this->url(array( 'controller' => 'usuario' , 'action' => 'index')); ?> ">Cadastrar Usuário</a></li>
+        <li><a href=" <?= $this->url(array( 'controller' => 'novo-projeto-usuario' , 'action' => 'index')); ?> ">Vincular usuário existente a um projeto</a></li>
+    </ul>
+</nav>  
+
+<br>         
+          <figure id="logo-1">
+                <img src="/projetos/public/Imagens-projeto/logo_uesc.jpg">   
+          </figure> 
+          
+          <figure id="logo-2">
+                <img src="/projetos/public/Imagens-projeto/nbcgiblogo80.png">
+          </figure>
+
+
+		<h1 id="titulo-principal">Núcleo de Biologia Computacional e Gestão de Informações Biotecnológicas -</h1>
+
+                                    <h2>NBCGIB</h2>
+          <br>
+
+		
+                    </header>
+            
+
+                     <?php echo $this->layout()->content; ?>
+
+             <footer id="rodape">
+          <img id="ft-rodape" src="/projetos/public/Imagens-projeto/rodape.PNG">
+		<p>Copyright © 2014 NBCGIB-UESC. Todos os direitos reservados</p>
+                
+	  </footer>
+	
+  	</div>
+  </body>
+</html>
+

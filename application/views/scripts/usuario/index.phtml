@@ -1,0 +1,304 @@
+    
+<fieldset id="fieldAuth">
+    <legend>Login</legend> 
+    <form id="autenticacao" method="post" action="<?=$this->url(array("controller"=>"usuario","action"=>"index"),null,true)?>">
+       <input type="text"  required placeholder="Entre com o login" name="login" id="login"/><br><br>
+       <input type="password" required  placeholder="Entre com a senha" name="senha" id="senha"/><br><br> 
+       
+       <input type="radio" name="radioTipoLogin" value="adm" > <label>Administrador </label>  <br>
+       <input type="radio" name="radioTipoLogin" value="usuario_comum" checked> <label>Usuário comum </label>  <br><br>
+                 
+        <input name="btn_auth" id="btn_auth" type="submit" value="Entrar"/><br><br>
+   </form>
+</fieldset>    
+    
+<br><br><br>
+<article id="atencao">
+            <h2 id="aviso1">APÓS PREENCHER OS CAMPOS DO FORMULÁRIO ABAIXO E CLICAR EM "ENVIAR", FAVOR IMPRIMIR O RELATÓRIO GERADO.</br>
+
+		ASSINE E ENCAMINHE AO NBCGIB.</h2>
+                    
+                    </article>
+<section id="corpo">
+    <br><br><br>
+          <form onsubmit="return validarUsuario(this);" name="form"  id="form" method="post" action="<?=$this->url(array("controller"=>"usuario","action"=>"criar"),null,true)?>">
+              
+                           
+              <fieldset id="cadastro-usuario">
+                  <legend>Cadastro usuário</legend>
+                  
+                  <fieldset id="observacao">
+                  <legend id="atencao"> Atenção </legend>
+                  <h3>Caso já exista um usuário cadastrado você pode vinculá-lo rapidamente a um projeto utilizando apenas seu CPF.
+                      <a href=" <?= $this->url(array('controller' => 'novo-projeto-usuario', 'action' => 'index')) ?>">Click aqui</a>
+                  </h3>
+              </fieldset> <br>
+                  
+                  <h2 id="aviso2">Para cadastrar-se como usuário deve haver um projeto já cadastrado.</h2>
+                  <br><br>
+                  
+                  <select name="comboProjetos" id="comboProjetos" class="combo">
+                        <option value="0" >Escolha um projeto</option>
+                        
+                        <?php foreach ($this->selectProjetos as $ln):
+                            
+                            if(  ($ln['status'] <> 5)  ){
+                                
+                            ?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['titulo'] ?> </option>
+                        
+                        <?php
+                        
+                            }
+                        endforeach;
+                        
+                        ?>
+                    </select>
+                  <br><br>
+                  
+                  
+                   <select   required  name="tipo_usuario" id="combo_tipoUsuario" class="combo">
+                        <option value="0" >Tipo do usuário</option>
+                        <option value="1" >Coordenador</option>
+                        <option value="2" >Colaborador externo</option>
+                        <option value="3" >Gerente geral</option>
+                        <option value="4" >Usuário comum</option>
+                    </select>
+                  <br><br>
+                  
+                  
+
+                  <label class="lbl-default" >Nome completo:</label>
+                  <input type="text" name="nome-usuario" id="nome-usuario" class="txb-default"  required/><br /><br>
+
+
+                  <label class="lbl-default"  >Matrícula:</label>
+                  <input type="text" id="matricula-usuario" class="txb-default"   name="matricula-usuario" /><br /><br>
+
+
+                  <label class="lbl-default" >E-mail:</label>
+                  <input type="email" name="email-usuario" class="txb-default"   required  id="email-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >Nome de usuário:</label>
+                  <input type="text" name="conta-usuario"  class="txb-default"   required    id="conta-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >RG:</label>
+                  <input type="text" name="rg-usuario"   class="txb-default"   required  id="rg-usuario"/><br><br>
+
+                  
+                  <label class="lbl-inputs" >País:</label>
+                  <select   required  name="pais-usuario" id="combo_paisUsuario" class="combo">
+                        <option value="0" >País</option>
+                        <?php foreach ($this->selectPais as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox" value="1" id="checkPaisUsuario" name="check_paisUsuario" class="check" onclick=" desbloquear(    document.getElementById( 'checkPaisUsuario' ), document.getElementById( 'pais-usuario' ) , document.getElementById( 'combo_paisUsuario' )   )  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="pais-usuario" class="txb"   required   disabled="disabled"   id="pais-usuario"/><br><br>
+
+                  
+                  <label class="lbl-inputs" >Divisão administrativa:</label>
+                  <select name="uf-usuario" id="combo_ufUsuario" class="combo">
+                        <option value="0" >Estado</option>                      
+                  </select>
+                  <input  type="checkbox"  value="1" name="check_ufUsuario"  id="checkUfUsuario" class="check" onclick=" desbloquear(document.getElementById( 'checkUfUsuario' ), document.getElementById( 'uf-usuario' ) , document.getElementById( 'combo_ufUsuario' ) )  ">
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text" name="uf-usuario" disabled="disabled" required  class="txb"  id="uf-usuario"/><br><br>
+
+                  
+                  <label class="lbl-default" > Passaporte:</label>
+                  <input type="text" name="passaporte-usuario"       class="txb-default"    id="passaporte"/><br><br>
+
+                  <label class="lbl-default" >CPF:</label>
+                  <input type="text" name="cpf-usuario"   required    class="txb-default"    id="cpf"/><br><br>
+
+                  <label class="lbl-default" >Lattes:</label>
+                  <input type="text" name="lattes-usuario"       class="txb-default"    id="lattes"/><br><br>
+
+                  
+
+                  <label class="lbl-default" >CEP:</label>
+                  <input type="text" name="cep-usuario"  class="txb-default"  required    id="cep" size="15" maxlength="8" >    <br><br>
+                  <!--<input type="text"  id="cep"/><br><br>-->
+
+
+
+                  <label class="lbl-default" >Endereço:</label>
+                  <input type="text" name="endereco-usuario"  class="txb-default"    required     id="endereco-usuario"/><br><br>
+
+                  <label class="lbl-default" >Bairro:</label>
+                  <input type="text" name="bairro-usuario"   class="txb-default"    required    id="bairro-usuario"/><br><br>
+                  
+
+                  <label class="lbl-default" >Complemento:</label>
+                  <input type="text" name="complemento-usuario"  class="txb-default"   id="complemento-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >Cidade:</label>
+                  <input type="text"  name="cidade-usuario"   class="txb-default"    required   id="cidade-usuario"/><br><br>
+
+                  
+                  <label class="lbl-default" >Telefone:</label>
+                  <input type="text" name="tel-usuario"   class="txb-default"   id="tel"/><br><br>
+
+
+                  <label class="lbl-default" >Celular:</label>
+                  <input type="text" name="cel-usuario"   class="txb-default"   id="cel"/><br><br>
+
+
+                  <label class="lbl-default" >Fax:</label>
+                  <input type="text"  name="fax-usuario"  class="txb-default"    id="fax-usuario"/><br><br>
+
+              </fieldset>
+              <br>
+              <fieldset id="universidade">
+
+                  <legend>Cadastro Instituição</legend>
+
+                  
+                  <label class="lbl-inputs" >País:</label>
+                  <select  name="pais-inst" id="combo_paisInst" class="combo">
+                        <option value="0" >País</option>
+                        <?php foreach ($this->selectPais as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox"  name="check_paisInst"  value="1" id="checkPaisInst" class="check" onclick=" desbloquear(document.getElementById( 'checkPaisInst' ), document.getElementById( 'pais-inst' ) , document.getElementById( 'combo_paisInst' ) ); cadastroInst(document.getElementById('check-nomeInst'));  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="pais-inst"  class="txb"  required   disabled="disabled"   id="pais-inst"/><br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Divisão administrativa:</label>
+                  <select  name="uf-inst" id="combo_ufInst" class="combo">
+                        <option value="0">Estado</option>
+                  </select>
+                  <input  type="checkbox"  name="check_ufInst"  value="1" id="check-ufInst" class="check" onclick=" desbloquear(document.getElementById( 'check-ufInst' ), document.getElementById( 'uf-inst' ) , document.getElementById( 'combo_ufInst' ) )  ">
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text" name="uf-inst"   class="txb"  required   disabled="disabled"   id="uf-inst"/><br><br>
+
+                  
+                  <label class="lbl-inputs ">Nome:</label>
+                  <select name="nome-inst"  id="combo_nomeInst" class="combo">
+                        <option value="0" >Instituição</option>                        
+                  </select>
+                  <input  type="checkbox"  value="1" name="check_nomeInst"  id="check-nomeInst" class="check" onclick=" desbloquear(document.getElementById( 'check-nomeInst' ), document.getElementById( 'nome-inst' ) , document.getElementById( 'combo_nomeInst' ) ); cadastroInst(document.getElementById('check-nomeInst'));"> 
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text"  name="nome-inst" class="txb"  id="nome-inst"   required  disabled="disabled" /><br><br>
+                 
+                   
+                  <label class="lbl-inputs ">Departamento:</label>
+                  <select  name="departamento-inst" id="combo_departamentoInst" class="combo">
+                        <option value="0" >Departamento</option>                        
+                  </select>
+                  <input  type="checkbox" value="1"  name="check_departamentoInst"  id="check-departamentoInst" class="check" onclick=" desbloquear(document.getElementById( 'check-departamentoInst' ), document.getElementById( 'departamento-inst' ) , document.getElementById( 'combo_departamentoInst' ) )  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="departamento-inst"   required    class="txb"  disabled="disabled"   id="departamento-inst"/><br><br>
+
+                  
+<!--       Areas de Conhecimento com base no CNPQ           -->
+
+                  <label class="lbl-inputs" >Grande Área:</label>
+                  <select name="grandeAreaInst"  id="combo_grandeAreaInst" class="combo">
+                        <option value="0" >Grande Área</option>
+                        <?php foreach ($this->selectGrandeArea as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Área:</label>
+                  <select name="areaInst"  id="combo_areaInst" class="combo">
+                        <option value="0" >Área</option>                       
+                  </select>
+                  <br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Subárea:</label>
+                  <select name="subAreaInst"  id="combo_subAreaInst" class="combo">
+                        <option value="0" >Subárea</option>                       
+                  </select>
+                  <br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Especialidade:</label>
+                  <select name="especialidadeInst"  id="combo_especialidadeInst" class="combo">
+                        <option value="0" >Especialidade</option>                       
+                  </select>
+                  <br><br>
+                  
+                  
+                <!--       Areas de Conhecimento com base no CNPQ           -->
+                
+                
+                
+                  <label class="lbl-default" >Cidade:</label>
+                  <input type="text"  name="cidade-inst"   disabled="disabled"    class="txb-default"   required  id="cidade-inst" onclick="cadastroInst(document.getElementById('check-nomeInst'));"/><br><br>
+
+
+                  <label class="lbl-default" >Endereço:</label>
+                  <input type="text"  name="end-inst"   disabled="disabled"    class="txb-default"  required   id="end.inst"/><br><br>
+
+
+                  <label class="lbl-default" >Complemento:</label>
+                  <input type="text"  name="comp-inst"   disabled="disabled"    class="txb-default"   id="comp.inst"/><br><br>
+
+
+                  <label class="lbl-default" >Bairro:</label>
+                  <input type="text" name="bairro-inst"    disabled="disabled"    class="txb-default"  required   id="bairro.inst"/><br><br>
+
+                  
+
+                  <label class="lbl-default" >CEP:</label>
+                  <input type="text" name="cep-inst"    disabled="disabled"   class="txb-default"  required    id="cep-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Telefone:</label>
+                  <input type="text"  name="tel-inst"   disabled="disabled"   class="txb-default"  required    id="tel-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Ramal:</label>
+                  <input type="text"  name="ramal-inst" class="txb-default"    disabled="disabled"     id="ramal-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Fax:</label>
+                  <input type="text"  name="fax-inst"  class="txb-default"   disabled="disabled"     id="fax-inst"/><br><br>
+                  
+              </fieldset>
+            <br/>
+              
+
+
+              <fieldset>
+                  <legend> Termo de compromisso </legend>
+
+                    <ul>
+                        <p id="termos">
+                        O usuário se compromete a:
+                        <li><span>não fornecer sua senha (pessoal e intransferível);</span></li>
+                        <li><span>não se afastar do objetivo inicial do projeto ao qual está vinculado;</span></li>
+                        <li><span>respeitar as diretrizes de uso da rede às quais o CACAU está conectado;</span></li>
+                        <li><span>incluir em qualquer trabalho ou publicação, oriunda deste projeto, a frase: "Pesquisa desenvolvida com o auxílio do Núcleo de
+                        Biologia Computacional e Gestão de Informações Biotecnológicas - NBCGIB", com recursos FINEP/MCT, CNPQ e FAPESB e da
+                        Universidade Estadual de Santa Cruz - UESC” ou o equivalente no idioma da publicação.</span></li>
+                  </br>
+                  </br>
+                        <li><span>O NBCGIB se reserva ao direito de a qualquer momento, a seu exclusivo critério, mudar as diretrizes sem aviso prévio.</span></li>
+                  </p>
+
+                    </ul>
+                    
+                   
+
+              </fieldset>
+              <input  onclick="return validarUsuario(document.getElementByName('form'));window.print();  " id="btnUsuarioEnviar" type="submit"  value="Enviar"/><br><br>
+              
+          </form>
+              
+	  </section>	  
+
+
+

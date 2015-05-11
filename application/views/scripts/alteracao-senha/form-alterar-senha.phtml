@@ -1,0 +1,11 @@
+<?php $dados = $this->dados ?>
+<form method="post" action="<?= $this->url(array("controller" => "alteracao-senha" ,"action" => "alterar-senha" )) ?>">
+    <input type="hidden" name="senha_atual" value="<?= $dados['senha'] ?>">
+    <input type="hidden" name="id_usuario" value="<?= $dados['id'] ?>">
+    <label>Login atual:&nbsp; <?=$dados['email']?> </label><br><br>
+    <label> Digite a senha antiga:&nbsp; <input type="password" id="senha" name="senha_antiga" class="txb-default"required>  </label><br><br>
+    <label> Digite a nova senha:&nbsp; <input type="password" id="senha1"  name="senha1" min="6"  class="txb-default"required>  </label><br><br>
+    <label> Digite novamente:&nbsp; <input type="password" id="senha2" name="senha2" min="6"   class="txb-default"required>  </label><br><br>
+    <input onclick="return verificarSenhas(document.getElementById('senha1'), document.getElementById('senha2'));" type="submit" name="botao" value="Enviar">
+</form>
+<br><br>

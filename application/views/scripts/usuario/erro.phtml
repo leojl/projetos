@@ -1,0 +1,20 @@
+
+    <?php header( 'Content-Type: text/html; charset=utf-8' );?>
+
+   <script charset="UTF-8">
+     alert(
+             "Usuário/email já cadastrado ou este projeto já possui um coordenador, caso o usuário já exista, tente cadastrar-se usando o seu CPF na página seguinte."
+     );
+         
+         location.href='<?php echo $this->url(array('controller'=>'novo-projeto-usuario'),null,true); ?>';
+    </script>
+<!--    
+   <script>
+     alert(
+             "Já existe um coordenador neste projeto !!!"
+     );
+         location.href="javascript:history.go(-1)";
+    
+    </script>
+    -->
+   

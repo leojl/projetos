@@ -1,0 +1,186 @@
+
+fieldset#fieldAuth{
+    margin-left: 750px;
+    border: 2px solid #5599ff ;
+    border-radius: 10px;
+    padding: 5px;
+    width: 150px;
+}
+
+fieldset#fieldAuth label{
+    font-size: 11pt;
+}
+
+h2#aviso1{
+    display: block;
+    float:left;
+    margin-top: -150px;
+    margin-left: 0px;
+    width: 700px;
+}
+
+form#formProjeto label.lbl-default {
+    display: block;
+    float: left;
+    margin-left: 200px  ;
+}
+
+form#formProjeto label.lbl-inputs {
+    display: block;
+    float: left;
+    margin-left: 0px  ;
+}
+
+
+form#formProjeto label.lbl-outro{
+    position: relative;
+    right: 345px;
+    float: right;
+    /*margin-left: 0px;*/
+    
+}
+
+form#formProjeto input.check{
+    position: relative;
+    right: 425px;
+    float: right;
+    /*margin-left: 0px;*/
+    
+}
+
+
+form#formProjeto select.combo{
+    display: block;
+    float: left;
+    margin-left:  0px;
+    
+}
+
+
+
+form#formProjeto input.txb{
+    display: block;
+    float: right;
+    width: 350px;
+    margin-right: -75px;
+    
+}
+
+form#formProjeto input.txb-default{
+    display: block;
+    float: right;
+    width: 350px;
+    margin-right: 200px;
+    
+}
+
+form#formProjeto input#btnProjetoEnviar {
+    display: block;
+    float: right;
+    width: 150px;
+    height: 50px;
+    margin-left: 20px;
+}
+form#formProjeto input#btnProjeto_imprimir {
+    display: block;
+    float: left;
+    width: 150px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+form#formProjeto label {
+    text-align: right;
+    /*width: 35px;*/
+    padding-right: 20px;
+    padding-bottom: 10px;
+    color: #404040;
+}
+
+form#formProjeto br {
+    clear: left;
+}
+
+legend{
+    color: #002255;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 4px;
+    background-color: #aaccff;
+}
+
+ p#termos{
+    text-align: left;
+    text-indent: 20px;
+    font-size: 10pt;
+}
+
+ span{
+     font-size: 10pt;
+ }
+
+ div#limitaTabelaSoftwares{
+     float: left;
+     margin-left: 200px;
+     overflow-y: scroll;
+     height: 200px;
+     
+ }
+ 
+ table#tbl_software{
+     border: solid;
+     width: 1px;
+     padding: 8px;
+ }
+ 
+ table.tbl_software 
+{
+    font-size:12px;
+    color:#333333;
+    width:500px;
+    border-width: 1px;
+    border-color: #9dcc7a;
+    border-collapse: collapse;
+}
+
+table.tbl_software th 
+{
+    font-size:12px;
+    background-color:#66FFFF;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #9dcc7a;
+    text-align:left;
+}
+
+table.tbl_software tr:hover {
+    background-color:#DFFFFF;
+}
+
+table.tbl_software tr {
+    background-color:#BFFFFF;
+}
+
+table.tbl_software td {
+    font-size:12px;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #9dcc7a;
+}
+
+input#btn_addSoftwares{
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+
+fieldset {
+    border: 2px solid #5599ff ;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+    

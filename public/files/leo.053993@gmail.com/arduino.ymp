@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metapackage xmlns:os="http://opensuse.org/Standards/One_Click_Install" xmlns="http://opensuse.org/Standards/One_Click_Install">
+    <!--
+        Maintained by the following author(s):
+        * Bruno Canning <bruno.canning@dsl.pipex.com>
+             
+        For modifications to this file, please contact bruno.canning@dsl.pipex.com
+        Last modification: 2014-01-13T22:32:35Z
+    -->
+    <group distversion="openSUSE 13.1">
+        <name>Arduino IDE Installer For openSUSE 13.1</name>
+        <summary>Installs the Arduino IDE On Your System</summary>
+        <description>
+        This YaST Meta Package installs:
+        * Arduino IDE
+
+        After installation, you must add each user to the groups: "dialout", "lock" and "uucp" in order for them to make use of the IDE.
+        To to this, open YaST, select the "Security and Users" section and open the "User and Group Management" module.
+
+        Click "Customise" on the next screen to get the option to change the software selection.
+    </description>
+        <remainSubscribed />
+        <repositories>
+            <repository recommended="true" format="auto">
+                <name>openSUSE BuildService - CrossToolchain (avr)</name>
+                <summary>Crosscompiling Toolchain for ATMEL AVR microcontrollers</summary>
+                <description>Repository containing the Arduino IDE and some related dependencies.</description>
+                <url>http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_13.1/</url>
+            </repository>
+        </repositories>
+        <software>
+            <item recommended="true">
+                <name>arduino</name>
+                <summary>The open-source Arduino development environment</summary>
+                <description>This integrated development environment makes it easy to write code and upload it to the Arduino board. It runs on Windows, Mac OS X, and Linux. The environment is written in Java and based on Processing, avr-gcc, and other open source software.</description>
+            </item>
+        </software>
+    </group>
+    <group distversion="openSUSE 12.3">
+        <name>Arduino IDE Installer For openSUSE 12.3</name>
+        <summary>Installs the Arduino IDE On Your System</summary>
+        <description>
+        This YaST Meta Package installs:
+        * Arduino IDE
+
+        After installation, you must add each user to the groups: "dialout", "lock" and "uucp" in order for them to make use of the IDE.
+        To to this, open YaST, select the "Security and Users" section and open the "User and Group Management" module.
+
+        Click "Customise" on the next screen to get the option to change the software selection.
+    </description>
+        <remainSubscribed />
+        <repositories>
+            <repository recommended="true" format="auto">
+                <name>openSUSE BuildService - CrossToolchain (avr)</name>
+                <summary>Crosscompiling Toolchain for ATMEL AVR microcontrollers</summary>
+                <description>Repository containing the Arduino IDE and some related dependencies.</description>
+                <url>http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_12.3/</url>
+            </repository>
+        </repositories>
+        <software>
+            <item recommended="true">
+                <name>arduino</name>
+                <summary>The open-source Arduino development environment</summary>
+                <description>This integrated development environment makes it easy to write code and upload it to the Arduino board. It runs on Windows, Mac OS X, and Linux. The environment is written in Java and based on Processing, avr-gcc, and other open source software.</description>
+            </item>
+        </software>
+    </group>
+    <group distversion="openSUSE 12.2">
+        <name>Arduino IDE Installer For openSUSE 12.2</name>
+        <summary>Installs the Arduino IDE On Your System</summary>
+        <description>
+        This YaST Meta Package installs:
+        * Arduino IDE
+
+        After installation, you must add each user to the groups: "dialout", "lock" and "uucp" in order for them to make use of the IDE.
+        To to this, open YaST, select the "Security and Users" section and open the "User and Group Management" module.
+
+        Click "Customise" on the next screen to get the option to change the software selection.
+    </description>
+        <remainSubscribed />
+        <repositories>
+            <repository recommended="true" format="auto">
+                <name>openSUSE BuildService - CrossToolchain (avr)</name>
+                <summary>Crosscompiling Toolchain for ATMEL AVR microcontrollers</summary>
+                <description>Repository containing the Arduino IDE and some related dependencies.</description>
+                <url>http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_12.2/</url>
+            </repository>
+        </repositories>
+        <software>
+            <item recommended="true">
+                <name>arduino</name>
+                <summary>The open-source Arduino development environment</summary>
+                <description>This integrated development environment makes it easy to write code and upload it to the Arduino board. It runs on Windows, Mac OS X, and Linux. The environment is written in Java and based on Processing, avr-gcc, and other open source software.</description>
+            </item>
+        </software>
+    </group>
+    <group distversion="openSUSE 12.1">
+        <name>Arduino IDE Installer For openSUSE 12.1</name>
+        <summary>Installs the Arduino IDE On Your System</summary>
+        <description>
+        This YaST Meta Package installs:
+        * Arduino IDE
+
+        After installation, you must add each user to the groups: "dialout", "lock" and "uucp" in order for them to make use of the IDE.
+        To to this, open YaST, select the "Security and Users" section and open the "User and Group Management" module.
+
+        Click "Customise" on the next screen to get the option to change the software selection.
+    </description>
+        <remainSubscribed />
+        <repositories>
+            <repository recommended="true" format="auto">
+                <name>openSUSE BuildService - CrossToolchain (avr)</name>
+                <summary>Crosscompiling Toolchain for ATMEL AVR microcontrollers</summary>
+                <description>Repository containing the Arduino IDE and some related dependencies.</description>
+                <url>http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_12.1/</url>
+            </repository>
+        </repositories>
+        <software>
+            <item recommended="true">
+                <name>arduino</name>
+                <summary>The open-source Arduino development environment</summary>
+                <description>This integrated development environment makes it easy to write code and upload it to the Arduino board. It runs on Windows, Mac OS X, and Linux. The environment is written in Java and based on Processing, avr-gcc, and other open source software.</description>
+            </item>
+        </software>
+    </group>
+</metapackage>

@@ -1,0 +1,68 @@
+<!--
+<spam class="alinhamento_direita"><a href="<?=$this->url(array("controller"=>"adm-projetos","action"=>"index"),null,true)?>">Click aqui para ver os Projetos cadastrados</a></spam>
+<br><br><br><br>
+<h1></h1>-->
+<form name="formConsultaStatus" method="post" action="#">
+    
+    <select name="status_usuario_consulta" id="status_usuario_consulta" >
+                        <option value="0" >Todos usuários</option>
+                        <option value="2" >Aguardando aprovação</option>
+                        <option value="4" >Ativo</option>
+                        <option value="5" >Inativo</option>
+                    </select>
+    
+    <input id="btnSelectStatus" type="submit" name="Enviar" value="Enviar"/><br><br>
+</form>
+
+
+<?php
+    $usuario=$this->usuario->email;    
+?>
+<spam id="login" class="login"><a href="<?=$this->url(array("controller"=>"usuario","action"=>"sair"),null,true)?>">
+           <?=$usuario?>, click aqui para sair     
+    </a></spam><br><br>
+
+
+<form name="form" method="post" action="<?=$this->url(array("controller"=>"adm-usuarios","action"=>"atualiza"),null,true)?>">
+    <table class="tftable">
+    
+    <tr>
+        <th>Nome do usuário</th>
+        <th>Instituição</th>        
+        <th>Projeto relacionado</th>
+        <th>Tipo do usuário</th>
+        <th>Status do usuário</th>
+        <th>PDF</th>
+        <th>Alterar status</th>
+    </tr>
+   
+   <?php
+     foreach ($this->dados as $ln):
+        ?>
+    
+    <tr>
+        <td><?php echo $ln['nomeUsuario']  ?></td>
+        <td><?php echo $ln['nomeInst'] ?></td>        
+        <td><?php  echo $ln['titulo']  ?></td>
+        <td><?php  echo $ln['tipo']  ?></td>
+        <td><?php  echo $ln['statusProjetoUsuario']  ?></td>
+        <td><?php echo '<a href='. $this->url(array('controller' => 'usuario','action'=>'pdf','id-projeto-usuario' => $ln['idProjetoUsuario'] )).' target="_blank">' ?>  <img src="Imagens-projeto/Adobe.png" title="Gerar PDF completo" /></a></td>
+        <td> 
+            <input type='checkbox' name='checkbox_id[]' value="<?php echo $ln['idProjetoUsuario'] ?>">
+            </td>
+    </tr>
+    
+    <?php endforeach;?>
+   
+    
+    </table><br>
+    <a id="linkCbb" href="javascript:checkAll();">Marcar/Desmarcar todos</a><br><br>
+    
+    <select name="status_projeto_usuario" id="status_projeto" >
+                        <option value="0" >Status novo</option>
+                        <option value="4" >Ativo</option>
+                        <option value="5" >Inativo</option>
+                    </select>
+    
+    <input id="btn" type="submit"  value="Enviar"/><br><br>
+</form>

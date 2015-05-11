@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+
+<?php
+    
+    $idProjetoUsuario = $this->idProjetoUsuario;
+?>
+
+<script>
+    //location.href='http://172.17.1.202/projeto/public/novo-projeto-usuario/pdf/id-usuario/<$idUsuario?>/id-projeto-usuario/<$idProjetoUsuario?>';
+      location.href='<?php echo $this->url(array('controller'=>'usuario','action'=>'pdf','id-projeto-usuario'=>$idProjetoUsuario),null,true); ?>';
+</script>
+

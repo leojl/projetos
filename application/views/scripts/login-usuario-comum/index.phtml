@@ -1,0 +1,36 @@
+    <?php 
+        $usuario = $this->usuario->email;
+        $projetos = $this->projetos;
+    ?>
+        <spam id="login" class="login"><a href="<?=$this->url(array("controller"=>"usuario","action"=>"sair"),null,true)?>">
+           <?=$usuario?>, click aqui para sair     
+    </a></spam><br><br>
+    
+  <fieldset> 
+      <legend>Artigos</legend>
+      
+    <form enctype="multipart/form-data" action=" <?= $this->url(array( 'controller' => 'login-usuario-comum' , 'action' => 'upload-file' )); ?> " method="post">
+        <input type="hidden" name="email_usuario" id="email_usuario" value="<?=$usuario?>" />
+        
+        <select required  name="projetos" id="projetos" class="combo">
+           <option value="0" >Projetos que você está relacionado</option>
+           <?php
+               foreach ($projetos as $ln)   {               
+           ?>
+           <option value="<?=$ln['idProjeto']?>" ><?=$ln['titulo']?></option>
+           <?php } ?>
+           </select><br><br>
+           
+           <label><input type="text" name="titulo" placeholder="Título do artigo" required /></label><br><br>
+           <label><input type="text" name="link" id="link" placeholder="Digite o link do artigo" required /></label><br><br>
+           <label>Ou envie um arquivo...<input type="checkbox" name="check_file" value="1" id="check_file" onclick="link_artigo(document.getElementById('check_file'),document.getElementById('link'),document.getElementById('arquivo'))" /></label> <br><br> 
+
+               <input name="uploadedfile" id="arquivo" type="file" disabled required />
+       
+
+       <br><br>
+       <input type="submit" value="Enviar" />
+       
+   </form>
+  </fieldset>
+<br><br>

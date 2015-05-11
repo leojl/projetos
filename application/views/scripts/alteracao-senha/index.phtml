@@ -1,0 +1,15 @@
+
+<?php
+    
+$dados = $this->dados;  
+    if(!isset($dados['email'])){}
+?>
+
+<br><br><br>
+<h2>Alterar sua senha</h2>
+<form method="post" action="<?= $this->url(array("controller" => "alteracao-senha" ,"action" => "enviar-codigo" )) ?>">
+    <label> Digite seu e-mail:&nbsp; <input type="email" name="email" class="txb-default"required>  </label>
+    <input type="submit" name="botao" value="Enviar">
+</form>
+<br><br>
+

@@ -1,0 +1,299 @@
+<section id="corpo">
+
+
+
+		<!--<article id="form">
+
+            <form name="meu-form">
+
+                <h1>Criar conta de usuário</h1>
+
+
+
+                    <label>Nome de usuário</label>
+                    <input type="text"  required="required" name="usuario" />
+
+                    <label>Matrícula</label>
+                    <input type="text" name="matricula" />
+
+                    <label>Área de conhecimento</label>
+                    <input type="text"   name="area-conhecimento" />
+
+                    <label>Instituição</label>
+                    <input type="text"   name="instituicao" />
+
+                    <label>Email</label>
+                    <input type="email"  placeholder="fulano@mail.com" name="email" />
+
+
+                    <textarea placeholder="Deixe sua opnião"></textarea>
+
+
+
+
+                    <input type="submit" onclick="Enviar();" value="Enviar" />
+
+
+            </form>
+
+
+        </article>
+
+        -->
+<br><br>
+
+          <form name="form"  id="form" method="post" action="<?=$this->url(array("controller"=>"index","action"=>"inserir"),null,true)?>">
+              
+              <fieldset id="cadastro-usuario">
+                  <legend>Cadastro usuário</legend>
+
+                  <label class="lbl-default" >Nome de usuário:</label>
+                  <input type="text" name="nome-usuario" id="nome-usuario" class="txb-default"  /><br /><br>
+
+
+                  <label class="lbl-default"  >Matrícula:</label>
+                  <input type="text" id="matricula-usuario" class="txb-default"   name="matricula-usuario" /><br /><br>
+
+
+                  <label class="lbl-default" >E-mail:</label>
+                  <input type="email" name="email-usuario" class="txb-default"     id="email-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >Conta:</label>
+                  <input type="text" name="conta-usuario"  class="txb-default"       id="conta-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >RG:</label>
+                  <input type="text" name="rg-usuario"   class="txb-default"     id="rg-usuario"/><br><br>
+
+                  
+                  <label class="lbl-inputs" >País:</label>
+                  <select   required  name="pais-usuario" id="combo-paisUsuario" class="combo">
+                        <option value="0" >País</option>
+                        <?php foreach ($this->selectPais as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox" value="1" id="check-paisUsuario" name="check-paisUsuario" class="check" onclick=" desbloquear(    document.getElementById( 'check-paisUsuario' ), document.getElementById( 'pais-usuario' ) , document.getElementById( 'combo-paisUsuario' )   )  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="pais-usuario" class="txb"      disabled="disabled"   id="pais-usuario"/><br><br>
+
+                  
+                  <label class="lbl-inputs" >Unidade Federativa:</label>
+                  <select name="uf-usuario" id="combo-ufUsuario" class="combo">
+                        <option value="0" >Estado</option>
+                        <?php foreach ($this->selectUf as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['sigla'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox"  value="1" name="check-ufUsuario"  id="check-ufUsuario" class="check" onclick=" desbloquear(document.getElementById( 'check-ufUsuario' ), document.getElementById( 'uf-usuario' ) , document.getElementById( 'combo-ufUsuario' ) )  ">
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text" name="uf-usuario" disabled="disabled" class="txb"  id="uf-usuario"/><br><br>
+
+
+
+                  <label class="lbl-default" >CPF:</label>
+                  <input type="text" name="cpf-usuario"       class="txb-default"    id="cpf"/><br><br>
+
+
+                  <label class="lbl-default" >Endereço:</label>
+                  <input type="text" name="endereco-usuario"  class="txb-default"         id="endereco-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >Complemento:</label>
+                  <input type="text" name="complemento-usuario"  class="txb-default"   id="complemento-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >Bairro:</label>
+                  <input type="text" name="bairro-usuario"   class="txb-default"        id="bairro-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >Cidade:</label>
+                  <input type="text"  name="cidade-usuario"   class="txb-default"       id="cidade-usuario"/><br><br>
+
+
+                  <label class="lbl-default" >CEP:</label>
+                  <input type="text" name="cep-usuario"  class="txb-default"      id="cep">    <br><br>
+                  <!--<input type="text"  id="cep"/><br><br>-->
+
+
+                  <label class="lbl-default" >Telefone:</label>
+                  <input type="text" name="tel-usuario"   class="txb-default"        id="tel"/><br><br>
+
+
+                  <label class="lbl-default" >Celular:</label>
+                  <input type="text" name="cel-usuario"   class="txb-default"    id="cel"/><br><br>
+
+
+                  <label class="lbl-default" >Fax:</label>
+                  <input type="text"  name="fax-usuario"  class="txb-default"    id="fax-usuario"/><br><br>
+
+                  <select name='cbbInstituicao'>
+                      <option value="0">Selecione</option>
+                      <?php
+                        foreach($this->selectInst as $ln):
+                            ?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        
+                        <?php
+                        endforeach; 
+                    ?>
+                  </select>
+                  
+                  <select name="cbbDepartamento">
+                        <option value="0" disabled="disabled">Escolha uma Instituição primeiro</option>
+                  </select>
+     
+                  
+              </fieldset>
+              <br>
+              <fieldset id="universidade">
+
+                  <legend>Cadastro Instituição</legend>
+
+                  <label class="lbl-inputs ">Nome:</label>
+                  <select name="nome-inst"  id="combo-nomeInst" class="combo">
+                        <option value="0" >Instituição</option>
+                        <?php foreach ($this->selectInst as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox"  value="1" name="check-nomeInst"  id="check-nomeInst" class="check" onclick=" desbloquear(document.getElementById( 'check-nomeInst' ), document.getElementById( 'nome-inst' ) , document.getElementById( 'combo-nomeInst' ) )  "> 
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text"  name="nome-inst" class="txb"  id="nome-inst"   required  disabled="disabled" /><br><br>
+                 
+                   
+                  <label class="lbl-inputs ">Departamento:</label>
+                  <select  name="departamento-inst" id="combo-departamentoInst" class="combo">
+                        <option value="0" >Departamento</option>
+                        <?php foreach ($this->selectDepart as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox" value="1"  name="check-departamentoInst"  id="check-departamentoInst" class="check" onclick=" desbloquear(document.getElementById( 'check-departamentoInst' ), document.getElementById( 'departamento-inst' ) , document.getElementById( 'combo-departamentoInst' ) )  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="departamento-inst"   required    class="txb"  disabled="disabled"   id="departamento-inst"/><br><br>
+
+
+                  <label class="lbl-inputs" >Área de conhecimento:</label>
+                  <select name="area-conhecimento"  id="combo-areaInst" class="combo">
+                        <option value="0" >Área de conhecimento</option>
+                        <?php foreach ($this->selectArea as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox"  name="check-areaInst"  value="1" id="check-areaInst" class="check" onclick=" desbloquear(document.getElementById( 'check-areaInst' ), document.getElementById( 'area-inst' ) , document.getElementById( 'combo-areaInst' ) )  "> 
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text"  name="area-conhecimento"   required   class="txb"  disabled="disabled"    id="area-inst"/><br><br>
+                  
+                  
+                  <label class="lbl-inputs" >País:</label>
+                  <select  name="pais-inst" id="combo-paisInst" class="combo">
+                        <option value="0" >País</option>
+                        <?php foreach ($this->selectPais as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['nome'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox"  name="check-paisInst"  value="1" id="check-paisInst" class="check" onclick=" desbloquear(document.getElementById( 'check-paisInst' ), document.getElementById( 'pais-inst' ) , document.getElementById( 'combo-paisInst' ) )  "> 
+                  <label class="lbl-outro" >Outro</label>
+                  <input type="text"  name="pais-inst"  class="txb"   disabled="disabled"   id="pais-inst"/><br><br>
+                  
+                  
+                  <label class="lbl-inputs" >Unidade Federativa:</label>
+                  <select  name="uf-inst" id="combo-ufInst" class="combo">
+                        <option value="0">Estado</option>
+                        <?php foreach ($this->selectUf as $ln):?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['sigla'] ?> </option>
+                        <?php endforeach;?>
+                  </select>
+                  <input  type="checkbox"  name="check-ufInst"  value="1" id="check-ufInst" class="check" onclick=" desbloquear(document.getElementById( 'check-ufInst' ), document.getElementById( 'uf-inst' ) , document.getElementById( 'combo-ufInst' ) )  ">
+                  <label class="lbl-outro" >Outra</label>
+                  <input type="text" name="uf-inst"   class="txb"   disabled="disabled"   id="uf-inst"/><br><br>
+
+                  
+                  <label class="lbl-default" >Cidade:</label>
+                  <input type="text"  name="cidade-inst"   class="txb-default"   id="cidade-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Endereço:</label>
+                  <input type="text"  name="end-inst"   class="txb-default"   id="end.inst"/><br><br>
+
+
+                  <label class="lbl-default" >Complemento:</label>
+                  <input type="text"  name="comp-inst"   class="txb-default"   id="comp.inst"/><br><br>
+
+
+                  <label class="lbl-default" >Bairro:</label>
+                  <input type="text" name="bairro-inst"    class="txb-default"   id="bairro.inst"/><br><br>
+
+                  
+
+                  <label class="lbl-default" >CEP:</label>
+                  <input type="text" name="cep-inst"   class="txb-default"    id="cep-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Telefone:</label>
+                  <input type="text"  name="tel-inst"  class="txb-default"    id="tel-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Ramal:</label>
+                  <input type="text"  name="ramal-inst" class="txb-default"     id="ramal-inst"/><br><br>
+
+
+                  <label class="lbl-default" >Fax:</label>
+                  <input type="text"  name="fax-inst"  class="txb-default"    id="fax-inst"/><br><br>
+                  
+              </fieldset>
+            <br/>
+              <fieldset id="dados-projeto">
+                  <legend> Dados do projeto </legend>
+
+                  <label>Título:</label>
+                  <input type="text"  name=""   id="titulo-projeto"/><br><br>
+
+<!--
+                  <label>Responsável:</label>
+                  <input type="text"  name=""   id="resp.projeto"/><br><br>
+
+                  <label>Início do projeto</label>
+                  <input  type="date" name=""   id="data-inicio">
+-->
+
+              </fieldset>
+                <br/>
+
+
+              <fieldset>
+                  <legend> Termo de compromisso </legend>
+
+                    <ul>
+                        <p id="termos">
+                        O usuário se compromete a:
+                        <li><span>não fornecer sua senha (pessoal e intransferível);</span></li>
+                        <li><span>não se afastar do objetivo inicial do projeto ao qual está vinculado;</span></li>
+                        <li><span>respeitar as diretrizes de uso da rede às quais o CACAU está conectado;</span></li>
+                        <li><span>incluir em qualquer trabalho ou publicação, oriunda deste projeto, a frase: "Pesquisa desenvolvida com o auxílio do Núcleo de
+                        Biologia Computacional e Gestão de Informações Biotecnológicas - NBCGIB", com recursos FINEP/MCT, CNPQ e FAPESB e da
+                        Universidade Estadual de Santa Cruz - UESC” ou o equivalente no idioma da publicação.</span></li>
+                  </br>
+                  </br>
+                        <li><span>O NBCGIB se reserva ao direito de a qualquer momento, a seu exclusivo critério, mudar as diretrizes sem aviso prévio.</span></li>
+                  </p>
+
+                    </ul>
+
+
+
+              </fieldset>
+
+              <input  onclick="return valida()" id="botao" type="submit" value="enviar"/><br><br>
+          </form>
+
+<?php
+    echo $this->dados;
+?>
+
+	  </section>	  
+
+
+

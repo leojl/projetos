@@ -1,0 +1,63 @@
+<h1 class="titulo-lista">Projetos em andamento</h1>
+<br>
+<br>
+<section class="lista">
+    <article class="lista_dados">
+    <br><br><br>
+<?php    foreach ($this->dados as $ln):
+    $dataHoje = new DateTime('now', new DateTimeZone( 'America/Bahia'));
+    $dataInicio =  new DateTime( $ln['inicio'], new DateTimeZone( 'America/Bahia') ) ;
+    $dataFim = $dataInicio->add( new DateInterval( "P".$ln['duracao']."M" ) );
+     if(!($dataFim < $dataHoje) or $ln['duracao']==0){
+       if($ln['duracao']==0){ ?>
+        
+            <span><b>Projeto:</b>  <?=$ln['titulo']?> <br>
+            <b>Responsável:</b>   <?=$ln['nome']?>  <br>
+            <b>Relatório:</b> <a href= <?=$this->url(array('controller' => 'lista','action'=>'dados','id-projeto-usuario' => $ln['id'] ))?> target="_blank"  onclick="window.open(this.href, this.target, ' SCROLLBARS=YES, width=754,height=479'); return false;">Click aqui</a>
+            </span>
+            <br><br><br>
+            
+       <?php } 
+            
+        else{ ?>
+            <span><b>Projeto:</b>  <?=$ln['titulo']?> <br>
+            <b>Responsável:</b>   <?=$ln['nome'] ?> <br>
+            <b>Período de vigência:</b>  <?=$dataFim->format('d/m/Y') ?> <br>
+            <b>Relatório:</b> <a href= <?=$this->url(array('controller' => 'lista','action'=>'dados','id-projeto-usuario' => $ln['id'] ))?> target="_blank"  onclick="window.open(this.href, this.target, ' SCROLLBARS=YES, width=754,height=479'); return false;">Click aqui</a>
+            </span>
+            <br><br><br>
+            
+            <?php
+        }
+     }
+   endforeach; 
+     
+      
+?>
+    </article>
+     <hr width=100%>
+    <h1 class="titulo-lista">Projetos executados</h1><br><br>
+    
+    <article class="lista_dados">
+        
+        <?php    foreach ($this->dados as $ln):
+    $dataHoje = new DateTime('now', new DateTimeZone( 'America/Bahia'));
+    $dataInicio =  new DateTime( $ln['inicio'], new DateTimeZone( 'America/Bahia') ) ;
+    $dataFim = $dataInicio->add( new DateInterval( "P".$ln['duracao']."M" ) );
+     if(($dataFim < $dataHoje) and $ln['duracao']<>0){?>
+                
+            <span><b>Projeto:</b>  <?=$ln['titulo']?> <br>
+            <b>Responsável:</b>   <?=$ln['nome']?>  <br>
+            <b>Período de vigência:</b> <?= $dataFim->format('d/m/Y')?>  <br>
+            <b>Relatório:</b> <a href= <?=$this->url(array('controller' => 'lista','action'=>'dados','id-projeto-usuario' => $ln['id'] ))?> target="_blank"  onclick="window.open(this.href, this.target, ' SCROLLBARS=YES, width=754,height=479'); return false;">Click aqui</a>
+            </span>
+            <br><br><br>
+            
+       <?php 
+     }
+   endforeach; 
+     ?>
+   
+    </article>
+    
+</section>

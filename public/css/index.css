@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+    
+}
+
+div#interface{
+    width: 960px;
+    background-color: #ffffff;
+    margin: -20px/* margem de cima*/ auto/*direita*/
+        /*baixo*/0px /*e por ultimo margem esquerda*/auto;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+    padding: 10px 10px 10px 10px;
+}
+
+p{
+
+    text-align: justify;
+    text-indent: 50px;
+
+}
+
+/*
+
+nav#menu ul{
+    list-style: none;retira as marcaçoes das listas
+    text-transform: uppercase;
+    position: relative;
+    top: -20px;
+    left: 30px;
+
+}
+nav#menu li{
+    display: inline-block;itens do menu em uma unica linha
+    background-color: #dddddd;coloraçao
+    padding: 5px;
+    margin: 2px
+
+}
+
+nav#menu li:hover{
+    background-color: #606060;
+    color: #ffffff;
+}*/
+
+
+.example {
+    width:770px;
+    height:570px;
+    border:1px #000 solid;
+    margin:20px auto;
+    padding:15px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+
+#nav,#nav ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#nav {
+    height:41px;
+    padding-left:5px;
+    padding-top:5px;
+    position:relative;
+    z-index:2;
+}
+#nav ul {
+    left:-9999px;
+    position:absolute;
+    top:37px;
+    width:auto;
+}
+#nav ul ul {
+    left:-9999px;
+    position:absolute;
+    top:0;
+    width:auto;
+}
+#nav li {
+    float:left;
+    margin-right:5px;
+    position:relative;
+}
+#nav li a {
+    background:#c1c1bf;
+    color:#000;
+    display:block;
+    float:left;
+    font-size:16px;
+    padding:8px 10px;
+    text-decoration:none;
+}
+#nav > li > a {
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    -o-border-radius:6px;
+    border-radius:6px;
+
+    overflow:hidden;
+}
+
+#nav ul li {
+    margin:0;
+}
+#nav ul li a {
+    width:120px;
+}
+
+/*hover styles*/
+#nav li:hover > a {
+    background-color:#858180;
+    color:#fff;
+}
+
+
+
+figure#logo-1{
+    position: relative;
+    top: -30px;
+    left: -40px;
+}
+
+figure#logo-2{
+    position: relative;
+    top: -120px;
+    left: 880px;
+}
+
+header#cabecalho h1#titulo-principal{
+    margin-top: -180px;/*utilizado para titulo ficar ao lado das imagens*/
+}
+
+header#cabecalho h1{
+    font-size: 16pt;
+    text-align: center;
+}
+
+header#cabecalho h2{
+    font-size: 14pt;
+    text-align: center;
+}
+
+article#atencao h2{
+    font-size: 11pt;
+    color: red;
+    text-align: center;
+}
+
+article#termo-compromisso h1{
+    font-size: 10pt;
+    text-align: left;
+}
+
+article#termo-compromisso p{
+    font-size: 9pt;
+    text-align: left;
+    text-indent: 0px;
+}
+
+article#termo-compromisso{
+    margin: 50px 50px 50px 50px;
+    border: 2px #000000 solid;
+    padding: 10px;
+}
+
+input#botao{
+
+}
+
+footer#rodape{
+    clear: both;/*limpa o conteudo e faz com que o rodape seja mostrado
+    fora da divisao da section e inside*/
+    padding: 10px;
+    border-top: 1px solid #606060;
+
+}
+
+footer#rodape img{
+    margin-left: -10px;
+}
+
+footer#rodape p{
+    text-align: center;
+    font-size: 9pt;
+
+}

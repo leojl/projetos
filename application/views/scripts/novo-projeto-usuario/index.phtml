@@ -1,0 +1,96 @@
+    
+<fieldset id="fieldAuth">
+    <legend>Login</legend>  
+   <form id="autenticacao" method="post" action="<?=$this->url(array("controller"=>"usuario","action"=>"index"),null,true)?>">
+       <input type="text" required placeholder="Entre com o login" name="login" id="login"/><br><br>
+       <input type="password" required  placeholder="Entre com a senha" name="senha" id="senha"/><br><br>
+        <input name="btn_auth" id="btn_auth" type="submit" value="Entrar"/><br><br>
+   </form>       
+</fieldset>    
+    
+<br><br> 
+
+<article id="atencao">
+            <h2 id="aviso1">APÓS PREENCHER OS CAMPOS DO FORMULÁRIO ABAIXO E CLICAR EM "ENVIAR", FAVOR IMPRIMIR O RELATÓRIO GERADO.</br>
+
+		ASSINE E ENCAMINHE AO NBCGIB.</h2>
+                    
+                    </article><br><br><br>
+<section id="corpoProjeto">
+   
+<br><br> 
+
+    <form onsubmit="return validarProjetoUsuario(this);"  name="form" id="form"  method="post" action="<?=$this->url(array("controller"=>"novo-projeto-usuario","action"=>"criar"),null,true)?>" >
+         <fieldset>
+             
+               <h4 id="aviso">Caso possua um usuário e um projeto já cadastrado, Preencha os campos abaixo .</h4><br>
+               
+               <input type="text"  name="cpf-usuario" placeholder="Digite o CPF" required id="cpf"/><br><br>
+               
+                   <select   required  name="tipo_usuario" id="tipo_usuario" class="combo">
+                        <option value="0" >Tipo do usuário</option>
+                        <option value="1" >Coordenador</option>
+                        <option value="2" >Colaborador externo</option>
+                        <option value="3" >Gerente geral</option>
+                        <option value="4" >Usuário comum</option>
+                    </select>
+                  <br><br>
+            
+                  <select name="comboProjetos" id="projetos" class="combo">
+                        <option value="0" >Escolha um projeto</option>
+                        <?php foreach ($this->selectProjetos as $ln):
+                            if(($ln['status'] <> 5) || ($ln['status'] <> 2) ){
+                            ?>
+                        <option value="<?php echo $ln['id'] ?>"><?php echo $ln['titulo'] ?> </option>
+                        <?php
+                            }
+                        endforeach;?>
+                    </select>
+                  <input  onclick=" validarProjetoUsuario(document.getElementsByName('form'));     "  id="btnProjetoUsuario" name="enviar" type="submit"  value="Enviar"/><br><br>
+               </fieldset><br><br>
+    </form>
+
+
+
+            <br/>
+            
+            <fieldset>
+                <p>Caso não exista um usuário ou projeto, você deverá cadastrá-los. Segue os links abaixo:</p>
+                <ul>
+                    
+                    <li><a href="<?=$this->url(array("controller"=>"projeto","action"=>"index"),null,true)?>">Cadastrar projeto</a></li>
+                    <li><a href="<?=$this->url(array("controller"=>"usuario","action"=>"index"),null,true)?>">Cadastrar usuário</a></li>
+                                        
+                </ul>
+            </fieldset>
+            
+            <br>
+            
+              <fieldset>
+                  <legend> Termo de compromisso </legend>
+
+                    <ul>
+                        <p id="termosProjeto">
+                        O usuário se compromete a:
+                        <li><span>não fornecer sua senha (pessoal e intransferível);</span></li>
+                        <li><span>não se afastar do objetivo inicial do projeto ao qual está vinculado;</span></li>
+                        <li><span>respeitar as diretrizes de uso da rede às quais o CACAU está conectado;</span></li>
+                        <li><span>incluir em qualquer trabalho ou publicação, oriunda deste projeto, a frase: "Pesquisa desenvolvida com o auxílio do Núcleo de
+                        Biologia Computacional e Gestão de Informações Biotecnológicas - NBCGIB", com recursos FINEP/MCT, CNPQ e FAPESB e da
+                        Universidade Estadual de Santa Cruz - UESC” ou o equivalente no idioma da publicação.</span></li>
+                  </br></form>
+              
+                  </br>
+                        <li><span>O NBCGIB se reserva ao direito de a qualquer momento, a seu exclusivo critério, mudar as diretrizes sem aviso prévio.</span></li>
+                  </p>
+
+                    </ul>
+                  
+              </fieldset>
+            
+            
+	  </section>	  
+
+
+
+

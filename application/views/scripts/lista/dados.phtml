@@ -1,0 +1,25 @@
+
+<?php
+    $dados = $this->dados;
+?>
+
+<p> 
+  <?php foreach ($this->dados as $ln):
+      if( $ln['duracao'] == '0') $ln['duracao'] = 'Indefinida'
+      ?>
+   <b>Título do projeto:</b> <?= $ln['titulo'] ?> <br><br>
+   <b>Descrição:</b> <?= $ln['descricao'] ?> <br><br>
+   <b>Necessidades computacionais:</b> <?= $ln['necessidades_computacionais'] ?> <br>
+   <b>Início:</b> <?= $ln['inicio'] ?> <br>
+   <b>Duração em meses:</b> <?= $ln['duracao']?> <br><br>
+   
+   <b>Responsável:</b> <?= $ln['nome'] ?> <br>
+   <?php
+        if( !( $ln['lattes'] == '' or $ln['lattes'] == null ) ){
+   ?>
+   <b><a href=  <?= $ln['lattes'] ?>  target="_blank">Lattes</a></b><br>
+   
+   <?php
+        }
+   endforeach; ?>
+</p>

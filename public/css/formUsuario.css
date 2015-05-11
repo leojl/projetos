@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+
+fieldset#fieldAuth{
+    margin-left: 750px;
+    border: 2px solid #5599ff ;
+    border-radius: 10px;
+    padding: 5px;
+    width: 150px;
+}
+
+fieldset#fieldAuth label{
+    font-size: 11pt;
+}
+
+h2#aviso1{
+    display: block;
+    float:left;
+    margin-top: -150px;
+    margin-left: 0px;
+    width: 700px;
+}
+
+h3{
+    display: block;
+    float:left;
+    margin-left: 0px;
+    font-size: 10pt;
+}
+
+form#form label.lbl-default {
+    display: block;
+    float: left;
+    margin-left: 200px  ;
+}
+
+form#form label.lbl-inputs {
+    display: block;
+    float: left;
+    margin-left: 0px  ;
+}
+
+
+form#form label.lbl-outro{
+    position: relative;
+    right: 345px;
+    float: right;
+    /*margin-left: 0px;*/
+    
+}
+
+form#form h2#aviso2{
+     color: black;
+     text-align: center;
+     font-size: 14pt;
+}
+
+form#form input.check{
+    position: relative;
+    right: 425px;
+    float: right;
+    /*margin-left: 0px;*/
+    
+}
+
+
+form#form select.combo{
+    display: block;
+    float: left;
+    margin-left:  0px;
+    max-width: 900px
+}
+
+form#form input.txb{
+    display: block;
+    float: right;
+    width: 350px;
+    margin-right: -75px;
+    
+}
+
+form#form input.txb-default{
+    display: block;
+    float: right;
+    width: 350px;
+    margin-right: 200px;
+    
+}
+
+
+form#form input#btnUsuarioEnviar {
+    display: block;
+    float: right;
+    width: 150px;
+    height: 50px;
+    margin-left: 20px;
+}
+form#form input#btnUsuario_imprimir {
+    display: block;
+    float: left;
+    width: 150px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+form#form label {
+    text-align: right;
+    /*width: 35px;*/
+    padding-right: 20px;
+    padding-bottom: 10px;
+    color: #404040;
+}
+
+form#form br {
+    clear: left;
+}
+
+legend{
+    color: #002255;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 4px;
+    background-color: #aaccff;
+}
+
+fieldset#observacao{
+}
+
+legend#atencao{
+    font-size: 10.5pt;    
+}
+
+ p#termos{
+    text-align: left;
+    text-indent: 20px;
+    font-size: 10pt;
+}
+
+ span{
+     font-size: 10pt;
+ }
+
+
+fieldset {
+    border: 2px solid #5599ff ;
+    border-radius: 10px;
+    padding: 20px;
+
+}
