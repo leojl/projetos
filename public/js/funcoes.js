@@ -80,7 +80,7 @@
             $("select[name=pais-inst]").change(function(){
                 $("select[name=uf-inst]").html('<option value="0">Carregando...</option>');//o comando desta linha 'html' é usado para inserir algo na combobox
 
-                $.post( '  http://nbcgib.uesc.br/projetos/public/usuario/verifica2 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
+                $.post( 'usuario/verifica2 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
                     {nome:$(this).val()},//'nome' é uma variavel qualquer. esta linha tbm poderia ser assim --> {inst:("select[name=cbbDepartamento]").val()},
                     function(valor){
                         $("select[name=uf-inst]").html(valor);
@@ -101,7 +101,7 @@
             $("select[name=uf-inst]").change(function(){
                 $("select[name=nome-inst]").html('<option value="0">Carregando...</option>');//o comando desta linha 'html' é usado para inserir algo na combobox
 
-                $.post( '  http://nbcgib.uesc.br/projetos/public/usuario/verifica3 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
+                $.post( 'usuario/verifica3',//campo para o qual vou enviar meus dados do 'post' do Jquery
                     {nome:$(this).val()},//'nome' é uma variavel qualquer. esta linha tbm poderia ser assim --> {inst:("select[name=cbbDepartamento]").val()},
                     function(valor){
                         $("select[name=nome-inst]").html(valor);
@@ -121,7 +121,7 @@
             $("select[name=nome-inst]").change(function(){
                 $("select[name=departamento-inst]").html('<option value="0">Carregando...</option>');//o comando desta linha 'html' é usado para inserir algo na combobox
 
-                $.post( '  http://nbcgib.uesc.br/projetos/public/usuario/verifica ',//campo para o qual vou enviar meus dados do 'post' do Jquery
+                $.post( 'usuario/verifica ',//campo para o qual vou enviar meus dados do 'post' do Jquery
                     {inst:$(this).val()},//'inst' é uma variavel qualquer. esta linha tbm poderia ser assim --> {inst:("select[name=cbbDepartamento]").val()},
                     function(valor){
                         $("select[name=departamento-inst]").html(valor);
@@ -142,7 +142,7 @@
             $("select[name=grandeAreaInst]").change(function(){
                 $("select[name=areaInst]").html('<option value="0">Carregando...</option>');
 
-                $.post( '  http://nbcgib.uesc.br/projetos/public/usuario/verifica4 ',
+                $.post( ' usuario/verifica4 ',
                     {id:$(this).val()},
                     function(valor){
                         $("select[name=areaInst]").html(valor);
@@ -159,7 +159,7 @@
             $("select[name=areaInst]").change(function(){
                 $("select[name=subAreaInst]").html('<option value="0">Carregando...</option>');//o comando desta linha 'html' é usado para inserir algo na combobox
 
-                $.post( '  http://nbcgib.uesc.br/projetos/public/usuario/verifica5 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
+                $.post( 'usuario/verifica5 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
                     {id:$(this).val()},//'id' é uma variavel qualquer. esta linha tbm poderia ser assim --> {inst:("select[name=cbbDepartamento]").val()},
                     function(valor){
                         $("select[name=subAreaInst]").html(valor);
@@ -176,7 +176,7 @@
             $("select[name=subAreaInst]").change(function(){
                 $("select[name=especialidadeInst]").html('<option value="0">Carregando...</option>');//o comando desta linha 'html' é usado para inserir algo na combobox
 
-                $.post( '  http://nbcgib.uesc.br/projetos/public/usuario/verifica6 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
+                $.post( 'usuario/verifica6 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
                     {id:$(this).val()},//'id' é uma variavel qualquer. esta linha tbm poderia ser assim --> {inst:("select[name=cbbDepartamento]").val()},
                     function(valor){
                         $("select[name=especialidadeInst]").html(valor);
@@ -200,7 +200,7 @@
             $("select[name=pais-usuario]").change(function(){
                 $("select[name=uf-usuario]").html('<option value="0">Carregando...</option>');//o comando desta linha 'html' é usado para inserir algo na combobox
 
-                $.post( '  http://nbcgib.uesc.br/projetos/public/usuario/verifica2 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
+                $.post( 'usuario/verifica2 ',//campo para o qual vou enviar meus dados do 'post' do Jquery
                     {nome:$(this).val()},//'inst' é uma variavel qualquer. esta linha tbm poderia ser assim --> {inst:("select[name=cbbDepartamento]").val()},
                     function(valor){
                         $("select[name=uf-usuario]").html(valor);

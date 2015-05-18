@@ -14,34 +14,9 @@ class UsuarioController extends Zend_Controller_Action
     {
 //echo 'Estamos realizando manutenção temporária do site, agradecemos a compreensão';die;        
         //Realizar autenticaçao do usuario
-         if (isset($_POST['btn_auth'])){
-             
+        
+         if (isset($_POST['btn_auth'])){             
                 $form = $this->_getAllParams();
-                //AUTENTICAÇAO ADM
-             if ( $form['radioTipoLogin'] == 'adm' ){
-                 
-                $login = Application_Model_Login::loginAdm($form['login'],$form['senha']);
-                if($login == true) {
-                    $this->_redirect('/adm-usuarios');
-                }else{
-                    $this->_redirect('usuario/falha-autenticacao');
-             }
-           }
-           else{
-               //AUTENTICAÇAO USUARIO
-               $login = Application_Model_Login::loginUsuario($form['login'],$form['senha']);
-                if($login == true) {
-                    if( $form['senha'] == 'cacau2014' ){
-                        
-                        $this->_redirect('/alteracao-senha');//alterar senha
-                        
-                    }
-                    $this->_redirect('login-usuario-comum');
-                }else{
-                    $this->_redirect('usuario/falha-autenticacao');
-             }
-               
-           }
            
          }         
         ///////////////////////////////////////
@@ -826,10 +801,39 @@ O NBCGIB se reserva ao direito de a qualquer momento, a seu exclusivo critério,
          $this->_redirect('/usuario');
          
      }
+     
+     public function authAdmUsu(){
+         //AUTENTICAÇAO ADM
+             if ( $form['radioTipoLogin'] == 'adm' ){
+                 
+                $login = Application_Model_Login::loginAdm($form['login'],$form['senha']);
+                if($login == true) {
+                    $this->_redirect('/adm-usuarios');
+                }else{
+                    $this->_redirect('usuario/falha-autenticacao');
+             }
+           }
+           else{
+               //AUTENTICAÇAO USUARIO
+               $login = Application_Model_Login::loginUsuario($form['login'],$form['senha']);
+                if($login == true) {
+                    if( $form['senha'] == 'cacau2014' ){
+                        
+                        $this->_redirect('/alteracao-senha');//alterar senha
+                        
+                    }
+                    $this->_redirect('login-usuario-comum');
+                }else{
+                    $this->_redirect('usuario/falha-autenticacao');
+             }
+               
+           }
+     }
+
+
 //////////////////
      public function erroAction(){
          $this->_helper->layout->disableLayout();
      }
-    
      
 }
